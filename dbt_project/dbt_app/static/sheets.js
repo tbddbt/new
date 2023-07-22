@@ -91,15 +91,17 @@ function getColumnFormat_Materials() {
     
         columns = [
         {readOnly: true },{},{},
-        {type: 'numeric', numericFormat: { pattern: '0' }, validator: positiveIntegerValidator },{},{type: 'date',},{},{type: 'date',},
-        {type: 'numeric', numericFormat: { pattern: '0' }, validator: positiveIntegerValidator },{},{type: 'date',},
-        {type: 'numeric', numericFormat: { pattern: '0' }, validator: positiveIntegerValidator },{},{type: 'checkbox'},
+        {type: 'numeric',},{},{type: 'date',},{},{type: 'date',},
+        {type: 'numeric',},{},{type: 'date',},
+        {type: 'numeric',},{},{type: 'checkbox'},
         ];
         return columns;
      } 
 
-function getColumnFormat_Stage_1() {
+function getColumnFormat_Stage_1(sheets) {
     var columns;
+    var material_list=sheets['Materials']['sheet_data']
+    console.log(material_list)
   
     columns = [
       {readOnly: true },
@@ -111,7 +113,7 @@ function getColumnFormat_Stage_1() {
       {
         
         type: "dropdown",
-        source: ['1','2','3']
+        source: material_list
         
       },{},{},{type: 'date',},{},{},{},{},{type: 'date',},{},{type: 'date',},{},{},{type: 'date',},
       {

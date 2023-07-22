@@ -23,7 +23,7 @@
         }
               
        	
-        function showHandsontable(sheet) {
+        function showHandsontable(sheet,sheets) {
             let data_container = document.getElementById("handsontable-container-data");
             data_container.innerHTML = "";
             
@@ -54,7 +54,7 @@
             }
             else if(sheet.sheet_name == 'Stage_1') 
             {
-                columns = getColumnFormat_Stage_1()
+                columns = getColumnFormat_Stage_1(sheets)
             }
             else if(sheet.sheet_name == 'Stage_2') 
             {
@@ -191,7 +191,7 @@
 <body>
     <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden">
         {% for key, item in data.items %}            
-            <li style="float: left;padding:16px"><a href="#" onclick="showHandsontable(  {{ item }})" style="text-decoration: none;display: inline;color: black;text-align: center;padding:16px;"> {{key}}</a></li>            
+            <li style="float: left;padding:16px"><a href="#" onclick="showHandsontable({{ item }},{{data}})" style="text-decoration: none;display: inline;color: black;text-align: center;padding:16px;"> {{key}}</a></li>            
         {% endfor %}
     </ul>
 	<input type="text" id="handsontable-container-title" hidden readonly><br><br>
