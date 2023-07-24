@@ -100,7 +100,15 @@ function getColumnFormat_Materials() {
 
 function getColumnFormat_Stage_1(sheets) {
     var columns;
-    var material_list=sheets['Materials']['sheet_data']
+    var material_list = [];
+    var sheetData = sheets['Materials']['sheet_data'];
+    for (var i = 0; i < sheetData.length; i++) {
+        var rowData = sheetData[i];
+        var columnData = rowData[2]; // Assuming column 3 (0-based index)
+        if (columnData.trim() !== "") {
+            material_list.push(columnData);
+        }
+    }
     console.log(material_list)
   
     columns = [
